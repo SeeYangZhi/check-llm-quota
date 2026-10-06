@@ -1,0 +1,11 @@
+{
+  "subType": "TYPE_FREE",
+  "usage": {
+    "limit": "50",
+    "remaining": "5",
+    "resetTime": "2026-06-21T00:14:00Z"
+  },
+  "limits": [],
+  "parallel": {"limit": 2},
+  "user": {"membership": {"level": "LEVEL_FREE"}}
+}

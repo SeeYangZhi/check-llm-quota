@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.9", "3.12", "3.13"]
+    env:
+      UV_PYTHON: ${{ matrix.python-version }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: "latest"
+
+      - name: Install Python ${{ matrix.python-version }}
+        run: uv python install ${{ matrix.python-version }}
+
+      - name: Run tests
+        run: uv run pytest
+
+      - name: Test console scripts
+        run: |
+          uv run check-llm-quota --help
+          uv run check-llm-quota zai --help
+          uv run check-llm-quota kimi --help
+          uv run check-llm-quota all --help
+          uv run zai-quota --help
+          uv run kimi-quota --help
+          uv run python -m check_llm_quota --help
+
+      - name: Test skill entrypoint
+        run: uv run python skills/check-llm-quota/scripts/check_quota.py --help
+
+      - name: Test skill discovery
+        run: npx -y skills add . --list
+
+      - name: Build package
+        run: uv build

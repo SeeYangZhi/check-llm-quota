@@ -1,0 +1,16 @@
+{
+  "subType": "TYPE_PURCHASE",
+  "usage": {
+    "limit": "100",
+    "remaining": "80",
+    "resetTime": "2026-06-21T00:14:00Z"
+  },
+  "limits": [
+    {
+      "window": {"duration": 300, "timeUnit": "TIME_UNIT_MINUTE"},
+      "detail": {"limit": "100", "remaining": "99", "resetTime": "2026-06-17T01:14:00Z"}
+    }
+  ],
+  "parallel": {"limit": 10},
+  "user": {"membership": {"level": "LEVEL_BASIC"}}
+}

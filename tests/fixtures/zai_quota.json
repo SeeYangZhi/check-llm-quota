@@ -1,0 +1,32 @@
+{
+  "code": 200,
+  "msg": "success",
+  "success": true,
+  "data": {
+    "level": "lite",
+    "limits": [
+      {
+        "type": "TIME_LIMIT",
+        "percentage": 0,
+        "remaining": 100,
+        "nextResetTime": 1776306660000,
+        "usageDetails": [
+          {"modelCode": "search-prime", "usage": 0},
+          {"modelCode": "web-reader", "usage": 0},
+          {"modelCode": "zread", "usage": 0}
+        ]
+      },
+      {
+        "type": "TOKENS_LIMIT",
+        "percentage": 18,
+        "nextResetTime": 1776240000000
+      },
+      {
+        "type": "SESSION_LIMIT",
+        "percentage": 85,
+        "remaining": 3,
+        "nextResetTime": 1776230000000
+      }
+    ]
+  }
+}

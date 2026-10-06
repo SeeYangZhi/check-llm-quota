@@ -1,0 +1,8 @@
+{
+  "object": "list",
+  "data": [
+    {"id": "GLM-4.5-Air", "object": "model", "created": 1753948800, "owned_by": "zhipu"},
+    {"id": "GLM-4.6", "object": "model", "created": 1759190400, "owned_by": "zhipu"},
+    {"id": "GLM-5", "object": "model", "created": 1770000000, "owned_by": "zhipu"}
+  ]
+}

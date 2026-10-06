@@ -1,0 +1,62 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "check-llm-quota"
+version = "0.1.0"
+description = "Check usage quota, rate limits and remaining sessions across LLM API providers (Z.ai GLM, Kimi/Moonshot)."
+readme = "README.md"
+license = "MIT"
+license-files = { paths = ["LICENSE"] }
+requires-python = ">=3.9"
+dependencies = []
+authors = [
+    { name = "Yang Zhi See", email = "hello@yangzhi.dev" },
+]
+keywords = ["zai", "zhipu", "glm", "kimi", "moonshot", "quota", "api", "monitoring", "llm"]
+classifiers = [
+    "Environment :: Console",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Utilities",
+    "Typing :: Typed",
+]
+
+[project.scripts]
+check-llm-quota = "check_llm_quota.cli:main"
+# Back-compat aliases for the standalone zai-quota / kimi-quota tools.
+zai-quota = "check_llm_quota.cli:zai_main"
+kimi-quota = "check_llm_quota.cli:kimi_main"
+
+[project.urls]
+Homepage = "https://github.com/SeeYangZhi/check-llm-quota"
+Repository = "https://github.com/SeeYangZhi/check-llm-quota"
+Issues = "https://github.com/SeeYangZhi/check-llm-quota/issues"
+
+[dependency-groups]
+dev = ["pytest>=7"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/check_llm_quota"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "src/check_llm_quota",
+    "tests",
+    "skills",
+    "README.md",
+    "LICENSE",
+    "Makefile",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-q"

@@ -1,0 +1,9 @@
+{
+  "credential_pool": {
+    "zai": [
+      {"access_token": "", "label": "expired"},
+      {"access_token": "pool-token-zai", "label": "primary"}
+    ]
+  },
+  "legacy": ["legacy-token"]
+}
